@@ -1,0 +1,17 @@
+
+<main class="container mt-4 mb-4">
+  <div class="row row-cols-auto align-items-end justify-content-between mb-4">
+    <div class="col">
+      <h1 class="mb-0">Meus cursos</h1>
+    </div>
+    <div class="col">
+      <button class="btn btn-link">Criar novo curso</button>
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 gy-5 row-cols-auto justify-content-between">
+    <div class="col" *ngFor="let item of list">
+      <!-- placeholder -->
+      <div style="width: 100%; height: 200px; background-color: gray; border: 2px solid black;"></div>
+    </div>
+  </div>
+</main>
