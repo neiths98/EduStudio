@@ -14,10 +14,10 @@
         </div>
         <ul class="navbar-nav nav-fill mb-2 mb-lg-0 flex-nowrap" style="white-space: nowrap;">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Minhas aulas</a>
+            <a class="nav-link active" aria-current="page" [routerLink]="['/courses']">Meus cursos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Detalhes das aulas</a>
+            <a class="nav-link" href="#">Detalhes dos cursos</a>
           </li>
         </ul>
       </div>
@@ -27,4 +27,5 @@
       </div>
     </div>
   </nav>
+  <router-outlet></router-outlet>
 </body>
