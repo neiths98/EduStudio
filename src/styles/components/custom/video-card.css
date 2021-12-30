@@ -1,0 +1,30 @@
+
+.video-card:hover {
+  cursor: pointer;
+}
+
+.thumbnail-container {
+  position: relative;
+  max-height: 200px;
+  overflow: hidden;
+  background: lightgray;
+  aspect-ratio: auto 3/2;
+}
+
+.course-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+.thumbnail-overlay {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
