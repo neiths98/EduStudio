@@ -1,11 +1,11 @@
 <div class="video-card">
-  <h4>Nome do curso</h4>
+  <h4>{{ course.name }}</h4>
   <div class="thumbnail-container">
-    <img class="course-thumbnail" src="https://img.freepik.com/vetores-gratis/fundo-das-aguarelas-das-cores-claras_1340-190.jpg?size=338&ext=jpg">
+    <img class="course-thumbnail" src="{{course.thumbnail}}">
     <div class="thumbnail-overlay">
       <div class="row text-white text-center">
         <div class="col-12">
-          <h3>7</h3>
+          <h3>{{ course.length }}</h3>
         </div>
         <div class="col-12">
           <h3>aulas</h3>
