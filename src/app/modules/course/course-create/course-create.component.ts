@@ -1,5 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
-import { cloneDeep } from 'lodash';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-course-create',
