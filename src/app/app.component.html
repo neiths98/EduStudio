@@ -14,10 +14,16 @@
         </div>
         <ul class="navbar-nav nav-fill mb-2 mb-lg-0 flex-nowrap" style="white-space: nowrap;">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="['/courses']">Meus cursos</a>
+            <a
+              class="nav-link"
+              [routerLink]="['/courses']"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact:true }">
+              Meus cursos
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Detalhes dos cursos</a>
+            <a class="nav-link" [routerLink]="['/courses/dashboard']" routerLinkActive="active">Detalhes dos cursos</a>
           </li>
         </ul>
       </div>

@@ -1,0 +1,67 @@
+<main class="container mt-4 mb-4">
+  <div class="row row-cols-auto align-items-end justify-content-between mb-4">
+    <div class="col">
+      <h1 class="mb-0">Detalhes dos cursos</h1>
+    </div>
+    <div class="col">
+      <button [routerLink]="['/course/new']" class="btn btn-outline-primary">Criar novo curso</button>
+    </div>
+  </div>
+
+  <div *ngIf="coursesList.length" class="table-responsive rounded-bottom overflow-hidden">
+    <table class="table table-hover table-striped align-middle m-0">
+      <thead>
+        <tr>
+          <th scope="col">Título</th>
+          <th scope="col">Quantidade de vídeos</th>
+          <th scope="col">Link de acesso</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of coursesList">
+          <td>
+            {{ course.name }}
+          </td>
+          <td>
+            {{ course.length }}
+          </td>
+          <td>
+            {{ course.url }}
+          </td>
+          <td>
+            <div class="btn-toolbar d-flex justify-content-between" role="toolbar">
+              <!-- MOBILE -->
+              <div class="d-block d-sm-none mb-2">
+                <div class="btn-group-vertical" role="group">
+                  <button class="btn btn-outline-secondary">Editar</button>
+                  <button class="btn btn-outline-secondary">Detalhes</button>
+                </div>
+              </div>
+
+              <!-- DESKTOP -->
+              <div class="d-none d-sm-block">
+                <div class="btn-group" role="group">
+                  <button class="btn btn-outline-secondary">Editar</button>
+                  <button class="btn btn-outline-secondary">Ver detalhes</button>
+                </div>
+              </div>
+
+              <div class="btn-group" role="group">
+                <button class="btn btn-outline-danger">Remover</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="table-primary">
+          <td colspan="4" align="center">
+            <button class="btn btn-primary mt-2 mb-2" [routerLink]="['/course/new']">Adicionar curso</button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  
+</main>
