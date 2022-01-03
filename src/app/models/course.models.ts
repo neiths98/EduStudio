@@ -3,5 +3,6 @@ export interface CourseModel {
   name: string;
   author: string;
   thumbnail: string;
+  url: string;
   length: number;
 }

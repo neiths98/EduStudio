@@ -13,6 +13,7 @@ export class CoursesListComponent implements OnInit {
     name: 'Curso de Motoboy',
     author: 'Nero',
     thumbnail: 'https://pbs.twimg.com/media/DdaNfBJWkAI-qlq.jpg',
+    url: 'courses/124',
     length: 8
   };
   course2: CourseModel = {
@@ -20,6 +21,7 @@ export class CoursesListComponent implements OnInit {
     name: 'Como Boicotar o SUS',
     author: '',
     thumbnail: 'https://i.ytimg.com/vi/d7qYhAFj0FE/maxresdefault.jpg',
+    url: 'courses/1256',
     length: 23
   };
   courses = [
