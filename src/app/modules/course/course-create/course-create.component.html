@@ -9,9 +9,9 @@
     </div>
   </div>
 
-  <form class="row">
+  <form>
     <div class="row mb-3">
-      <div class="col-md-4 col-xs-12">
+      <div class="col-md-4">
         <label for="courseTitle" class="form-label">Título</label>
         <input type="text" class="form-control" id="courseTitle" placeholder="Nome do curso...">
       </div>
@@ -42,12 +42,19 @@
             <td>
               {{ file.name }}
             </td>
-            <td>
-              <button class="btn btn-outline-secondary">Remover</button>
+            <td class="col-1">
+              <button class="btn btn-outline-danger">Remover</button>
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="row">
+      <div [ngClass]="{'col-md-4': !previewFileArray.length}">
+        <div class="d-grid mt-3">
+          <button class="btn btn-primary">Criar curso</button>
+        </div>
+      </div>
     </div>
   </form>
 
