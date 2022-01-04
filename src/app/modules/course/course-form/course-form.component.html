@@ -1,0 +1,48 @@
+<form>
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <label for="courseTitle" class="form-label">Título</label>
+      <input type="text" class="form-control" id="courseTitle" placeholder="Nome do curso...">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <label for="formFileMultiple" class="form-label">Aulas</label>
+      <input class="form-control" type="file" accept="video/*" id="formFileMultiple" multiple placeholder="Escolher arquivo" (change)="onFileUploadChange($event)">
+    </div>
+  </div>
+
+  <div *ngIf="previewFileArray.length" class="table-responsive">
+    <table class="table table-striped align-middle">
+      <thead>
+        <tr>
+          <th scope="col">Video</th>
+          <th scope="col">Título
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let file of previewFileArray">
+          <td class="col-3">
+            <div class="thumbnail-container">
+              <video class="course-thumbnail" [src]="file.imageUrl"></video>
+            </div>
+          </td>
+          <td>
+            {{ file.name }}
+          </td>
+          <td class="col-1">
+            <button class="btn btn-outline-danger">Remover</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div [ngClass]="{'col-md-4': !previewFileArray.length}">
+      <div class="d-grid mt-3">
+        <button class="btn btn-primary">Criar curso</button>
+      </div>
+    </div>
+  </div>
+</form>
