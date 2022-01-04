@@ -10,7 +10,7 @@
   </div>
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 gy-4 gx-5 row-cols-auto">
     <div class="col" *ngFor="let course of courses;">
-      <app-course-card [course]="course"></app-course-card>
+      <app-course-card [routerLink]="['/course']"  [course]="course"></app-course-card>
     </div>
     <div class="col">
       <h4>&nbsp;</h4>

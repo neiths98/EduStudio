@@ -5,13 +5,15 @@ import { CourseRoutingModule } from './course-routing.module';
 import { CourseCreateComponent } from './course-create/course-create.component';
 import { CourseFormComponent } from './course-form/course-form.component';
 import { CourseEditComponent } from './course-edit/course-edit.component';
+import { CourseViewComponent } from './course-view/course-view.component';
 
 
 @NgModule({
   declarations: [
     CourseCreateComponent,
     CourseFormComponent,
-    CourseEditComponent
+    CourseEditComponent,
+    CourseViewComponent
   ],
   imports: [
     CommonModule,
