@@ -3,4 +3,5 @@
 /* Guide */
 
 /* Custom */
-@import './components/custom/video-card.css'
+@import './components/custom/video-card.css';
+@import './components/custom/course-view.css';
