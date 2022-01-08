@@ -1,1 +1,34 @@
-<p>user-sign-up works!</p>
+<main class="d-flex align-items-center" style="height: 100vh;">
+  <div class="container m-auto">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-5">
+        <a class="d-block btn btn-text text-center" [routerLink]="['/courses']" routerLinkActive="active" >
+          <h1 class="display-1">EduStudio</h1>
+        </a>
+        <div class="row">
+          <h2 class="text-center mt-4 mb-4">Faça seu cadastro</h2>
+          <form action="">
+            <div class="col-12 mb-3">
+              <label class="form-label" for="emailInput">Email</label>
+              <input class="form-control" type="email" id="emailInput">
+            </div>
+            <div class="col-12 mb-3">
+              <label class="form-label" for="passwordInput">Senha</label>
+              <input class="form-control" type="password" id="passwordInput">
+            </div>
+            <div class="col-12 mb-3">
+              <label class="form-label" for="passwordConfirmInput">Confirme sua senha</label>
+              <input class="form-control" type="password" id="passwordConfirmInput">
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+              <button class="btn btn-primary btn-lg">Criar conta</button>
+            </div>
+          </form>
+        </div>
+        <div class="row mt-4 text-center">
+          <p>Já possui uma conta? <a [routerLink]="['/user/login']" class="btn-link">Fazer login</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
