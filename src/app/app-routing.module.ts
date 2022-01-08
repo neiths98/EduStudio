@@ -9,9 +9,15 @@ const routes: Routes = [
       { path: '', loadChildren: () => import('./modules/courses/courses.module').then(m => m.CoursesModule) },
       { path: 'courses', loadChildren: () => import('./modules/courses/courses.module').then(m => m.CoursesModule) },
       { path: 'course', loadChildren: () => import('./modules/course/course.module').then(m => m.CourseModule) },
-      { path: 'user', loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule) },
-    ]
+    ],
   },
+  { 
+    path: '',
+    children: [
+      { path: 'user', loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule) }
+    ],
+  },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
