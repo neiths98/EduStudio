@@ -8,7 +8,7 @@
     </div>
   </div>
 
-  <div *ngIf="coursesList.length" class="table-responsive rounded-bottom overflow-hidden">
+  <div *ngIf="courses.length" class="table-responsive rounded-bottom overflow-hidden">
     <table class="table table-hover table-striped align-middle m-0">
       <thead>
         <tr>
@@ -19,7 +19,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let course of coursesList">
+        <tr *ngFor="let course of courses">
           <td>
             {{ course.name }}
           </td>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoursesService } from 'src/app/core/services/courses.service';
 import { CourseModel } from 'src/app/models/course.models';
 
 @Component({
@@ -8,36 +9,11 @@ import { CourseModel } from 'src/app/models/course.models';
 })
 export class CoursesListComponent implements OnInit {
 
-  course: CourseModel = {
-    id: '124',
-    name: 'Curso de Motoboy',
-    author: 'Nero',
-    thumbnail: 'https://pbs.twimg.com/media/DdaNfBJWkAI-qlq.jpg',
-    url: 'courses/124',
-    length: 8
-  };
-  course2: CourseModel = {
-    id: '1256',
-    name: 'Como Boicotar o SUS',
-    author: '',
-    thumbnail: 'https://i.ytimg.com/vi/d7qYhAFj0FE/maxresdefault.jpg',
-    url: 'courses/1256',
-    length: 23
-  };
-  courses = [
-    this.course,
-    this.course2,
-    this.course,
-    this.course2,
-    this.course,
-    this.course,
-    this.course2,
-    this.course,
-    this.course2,
-    this.course
-  ];
+  courses: CourseModel[];
 
-  constructor() { }
+  constructor(private coursesService: CoursesService) {
+    this.courses = this.coursesService.getCourses();
+  }
 
   ngOnInit(): void {
   }

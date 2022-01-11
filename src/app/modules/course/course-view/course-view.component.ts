@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CoursesService } from 'src/app/core/services/courses.service';
+import { ClassModel, CourseModel } from 'src/app/models/course.models';
 
 @Component({
   selector: 'app-course-view',
@@ -6,25 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseViewComponent implements OnInit {
 
-  course = {
-    id: '124',
-    name: 'Curso de Motoboy',
-    author: 'Nero',
-    thumbnail: 'https://pbs.twimg.com/media/DdaNfBJWkAI-qlq.jpg',
-    classes: [
-      { title: 'Aula 1 - Yodinha', link: '../../../../assets/yoda.MP4', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non dolores officiis laboriosam qui similique doloribus, accusantium quasi enim. Sunt laborum repellat, voluptates facere nihil odit hic eligendi.' },
-      { title: 'Aula 2 - Yodinha', link: '../../../../assets/tiktok.MP4' },
-      { title: 'Aula 3 - Yodinha', link: '../../../../assets/yoda.MP4' },
-      { title: 'Aula 4 - Yodinha', link: '../../../../assets/tiktok.MP4' },
-      { title: 'Aula 5 - Yodinha', link: '../../../../assets/yoda.MP4' },
-    ],
-    url: 'courses/124',
-    length: 8
-  };
+  course: CourseModel;
+  currentClass: ClassModel;
 
-  currentClass = this.course.classes[0];
-
-  constructor() { }
+  constructor(private coursesService: CoursesService) {
+    this.course = this.coursesService.getCourseById('124');
+    this.currentClass = this.course.classes[0];
+  }
 
   ngOnInit(): void {
   }
