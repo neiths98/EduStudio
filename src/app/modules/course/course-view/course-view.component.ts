@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CoursesService } from 'src/app/core/services/courses.service';
 import { ClassModel, CourseModel } from 'src/app/models/course.models';
 
@@ -8,15 +9,19 @@ import { ClassModel, CourseModel } from 'src/app/models/course.models';
 })
 export class CourseViewComponent implements OnInit {
 
-  course: CourseModel;
-  currentClass: ClassModel;
+  course!: CourseModel;
+  currentClass!: ClassModel;
 
-  constructor(private coursesService: CoursesService) {
-    this.course = this.coursesService.getCourseById('124');
-    this.currentClass = this.course.classes[0];
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private coursesService: CoursesService
+  ) {}
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.course = this.coursesService.getCourseById(params['id']);
+      this.currentClass = this.course.classes[0];
+    });
   }
 
   updateCurrentClassOnClassClick(currentClass: any) {

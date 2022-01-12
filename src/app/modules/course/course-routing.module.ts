@@ -5,7 +5,7 @@ import { CourseEditComponent } from './course-edit/course-edit.component';
 import { CourseViewComponent } from './course-view/course-view.component';
 
 const routes: Routes = [
-  { path: '', component: CourseViewComponent },
+  { path: ':id', component: CourseViewComponent },
   { path: 'new', component: CourseCreateComponent },
   { path: 'edit', component: CourseEditComponent }
 ];
