@@ -34,7 +34,7 @@
               <!-- MOBILE -->
               <div class="d-block d-sm-none mb-2">
                 <div class="btn-group-vertical" role="group">
-                  <button class="btn btn-outline-secondary">Editar</button>
+                  <button [routerLink]="['/course', course.id, 'edit']" class="btn btn-outline-secondary">Editar</button>
                   <button class="btn btn-outline-secondary">Detalhes</button>
                 </div>
               </div>
@@ -42,7 +42,7 @@
               <!-- DESKTOP -->
               <div class="d-none d-sm-block">
                 <div class="btn-group" role="group">
-                  <button [routerLink]="['/course/edit']" class="btn btn-outline-secondary">Editar</button>
+                  <button [routerLink]="['/course', course.id, 'edit']" class="btn btn-outline-secondary">Editar</button>
                   <button class="btn btn-outline-secondary">Ver detalhes</button>
                 </div>
               </div>

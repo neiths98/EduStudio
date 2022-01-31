@@ -25,11 +25,11 @@
         <tr *ngFor="let file of previewFileArray">
           <td class="col-3">
             <div class="thumbnail-container">
-              <video class="course-thumbnail" [src]="file.imageUrl"></video>
+              <video class="course-thumbnail" [src]="file.url"></video>
             </div>
           </td>
           <td>
-            {{ file.name }}
+            {{ file.title }}
           </td>
           <td class="col-1">
             <button class="btn btn-outline-danger">Remover</button>

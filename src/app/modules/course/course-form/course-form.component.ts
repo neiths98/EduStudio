@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CourseModel } from 'src/app/models/course.models';
 
 @Component({
   selector: 'app-course-form',
@@ -6,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CourseFormComponent implements OnInit {
 
+  @Input() course?: CourseModel;
   @Input() buttonAction = '';
 
   previewFileArray: any[] = [];
@@ -13,6 +15,7 @@ export class CourseFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.previewFileArray = this.course ? this.course.classes : [];
   }
 
   onFileUploadChange(event: Event) {

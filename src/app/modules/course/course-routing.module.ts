@@ -5,9 +5,9 @@ import { CourseEditComponent } from './course-edit/course-edit.component';
 import { CourseViewComponent } from './course-view/course-view.component';
 
 const routes: Routes = [
-  { path: ':id', component: CourseViewComponent },
   { path: 'new', component: CourseCreateComponent },
-  { path: 'edit', component: CourseEditComponent }
+  { path: ':id', component: CourseViewComponent },
+  { path: ':id/edit', component: CourseEditComponent }
 ];
 
 @NgModule({
