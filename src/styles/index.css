@@ -1,7 +1,14 @@
+/* Core */
+@import './components/core/variables.css';
+@import './components/core/utilities.css';
+
 /* Components */
 
 /* Guide */
+@import './components/guide/background.css';
+@import './components/guide/iframe.css';
 
 /* Custom */
 @import './components/custom/video-card.css';
 @import './components/custom/course-view.css';
+@import './components//custom/landing-page.css';

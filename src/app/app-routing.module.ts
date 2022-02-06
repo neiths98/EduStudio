@@ -6,7 +6,7 @@ const routes: Routes = [
   { 
     path: '', component: AppRootComponent,
     children: [
-      { path: '', loadChildren: () => import('./modules/courses/courses.module').then(m => m.CoursesModule) },
+      { path: '', loadChildren: () => import('./modules/landing-page/landing-page.module').then(m => m.LandingPageModule) },
       { path: 'courses', loadChildren: () => import('./modules/courses/courses.module').then(m => m.CoursesModule) },
       { path: 'course', loadChildren: () => import('./modules/course/course.module').then(m => m.CourseModule) },
     ],

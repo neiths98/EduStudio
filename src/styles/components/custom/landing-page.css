@@ -1,0 +1,9 @@
+
+.hero {
+  height: 40vh;
+}
+
+.hero.hero-primary {
+  background-color: var(--background-primary);
+  color: var(--color-white);
+}
