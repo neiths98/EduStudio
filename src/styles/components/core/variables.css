@@ -1,0 +1,22 @@
+
+
+:root {
+  /* Shades of gray */
+  --color-gray-xdark             : #525252;
+  --color-gray-dark              : #757575;
+  --color-gray                   : #a5a5a5;
+  --color-gray-light             : #d5d5d5;
+  --color-gray-xlight            : #faf4ea;
+  --color-gray-xxlight           : #F0F0F0;
+  --color-white                  : #FFFFFF;
+  --color-black                  : #000000;
+  --color-transparent            : rgba(255, 255, 255, 0);
+  --color-black-shadow           : rgba(0, 0, 0, 0.5);
+
+  /* Color  Pallete */
+  --color-brand-blue             : #5BABB9;
+
+  /* Background colors */
+  --background-primary           : var(--color-brand-blue);
+  --background-secondary         : var(--color-white);
+}
