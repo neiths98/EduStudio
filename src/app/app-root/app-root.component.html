@@ -28,7 +28,9 @@
         </ul>
       </div>
       <div class="ms-5">
-        <!-- <button class="btn btn-primary">Entrar</button> -->
+        <!-- TODO: adicionar if verificando se usuário está autenticado ou não -->
+        <button class="btn btn-outline-secondary me-2" [routerLink]="['/user/sign-up']">Cadastrar</button>
+        <button class="btn btn-primary" [routerLink]="['/user/login']">Entrar</button>
         <button class="btn btn-outline-secondary">Sair</button>
       </div>
     </div>
