@@ -14,7 +14,7 @@
         <p class="text-align-justify">
           Com a tecnologia de transcrição automática de vídeos, nossa plataforma permite que alunos encontrem o conteúdo com mais rapidez e que os professores tenham uma plataforma moderna e segura para o ensino. Nós acreditamos que o ambiente de aprendizado deve ser aprimorado com novas tecnologias, para novas gerações de estudantes.
         </p>
-        <button class="btn btn-primary">Experimentar agora!</button>
+        <button class="btn btn-primary" [routerLink]="['/user/sign-up']">Experimentar agora!</button>
       </div>
       <div class="d-none d-md-flex col-5 justify-content-center">
         <img
@@ -30,6 +30,7 @@
       <div class="container text-center">
         <h2 class="mb-5">Exemplo de funcionalidade do EduStudio</h2>
         <iframe
+        id="ytplayer"
         src="https://www.youtube.com/embed/lAIGb1lfpBw"
         title="YouTube video player"
         frameborder="0"
@@ -37,7 +38,7 @@
         allowfullscreen>
         </iframe>
         <div class="mt-5 d-grid col-md-6 mx-auto">
-          <button class="btn btn-light btn-lg">Experimentar agora!</button>
+          <button class="btn btn-light btn-lg" [routerLink]="['/user/sign-up']">Experimentar agora!</button>
         </div>
       </div>
     </div>
