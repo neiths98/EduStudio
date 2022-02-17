@@ -1,25 +1,62 @@
 <main class="d-flex align-items-center" style="height: 100vh;">
   <div class="container m-auto">
     <div class="row d-flex justify-content-center">
-      <div class="col-lg-5">
+      <div class="col-lg-4">
         <a class="d-block btn btn-text text-center" [routerLink]="['/']" routerLinkActive="active" >
           <h1 class="display-1">EduStudio</h1>
         </a>
         <div class="row">
           <h2 class="text-center mt-4 mb-4">Faça seu cadastro</h2>
-          <form action="">
+          <form [formGroup]="signUpForm" (ngSubmit)="signUpFormSubmit()">
+
             <div class="col-12 mb-3">
               <label class="form-label" for="emailInput">Email</label>
-              <input class="form-control" type="email" id="emailInput">
+              <input
+              formControlName="emailField"
+              class="form-control"
+              [class.is-invalid]="(signUpFormSubmitted || emailField.dirty) && !emailField.valid"
+              type="email"
+              id="emailInput"
+              required>
+
+              <p class="invalid-feedback">
+                <span *ngIf="emailField.errors?.['required']">O email é obrigatório<br></span>
+                <span *ngIf="emailField.errors?.['emailPattern']">O email deve estar no formato xxx@xxx.xxx<br></span>
+                <span *ngIf="emailField.hasError('maxlength')">O email deve ter no máximo {{ lengthMaxEmail }} caracteres</span>
+              </p>
             </div>
+
             <div class="col-12 mb-3">
               <label class="form-label" for="passwordInput">Senha</label>
-              <input class="form-control" type="password" id="passwordInput">
+              <input
+              formControlName="passwordField"
+              class="form-control"
+              [class.is-invalid]="(signUpFormSubmitted || passwordField.dirty) && !passwordField.valid"
+              type="password"
+              id="passwordInput">
+
+              <p class="invalid-feedback">
+                <span *ngIf="passwordField.hasError('required')">A senha é obrigatória<br></span>
+                <span *ngIf="passwordField.hasError('minlength')">A senha deve conter pelo menos {{ lengthMinPassword }} caracteres<br></span>
+                <span *ngIf="passwordField.hasError('maxlength')">A senha deve conter no máximo {{ lengthMaxPassword }} caracteres</span>
+              </p>
             </div>
+
             <div class="col-12 mb-3">
               <label class="form-label" for="passwordConfirmInput">Confirme sua senha</label>
-              <input class="form-control" type="password" id="passwordConfirmInput">
+              <input
+              formControlName="confirmPasswordField"
+              class="form-control"
+              [class.is-invalid]="(signUpFormSubmitted || confirmPasswordField.dirty) && !confirmPasswordField.valid"
+              type="password"
+              id="passwordConfirmInput">
+
+              <p class="invalid-feedback">
+                <span *ngIf="confirmPasswordField.hasError('required')">A confirmação da senha é obrigatória<br></span>
+                <span *ngIf="confirmPasswordField.hasError('isNotEqual')">As senhas não correspondem</span>
+              </p>
             </div>
+
             <div class="d-flex justify-content-center mt-4">
               <button class="btn btn-primary btn-lg">Criar conta</button>
             </div>
