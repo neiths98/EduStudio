@@ -1,20 +1,33 @@
 <main class="d-flex align-items-center" style="height: 100vh;">
   <div class="container m-auto">
     <div class="row d-flex justify-content-center">
-      <div class="col-lg-5">
+      <div class="col-lg-4">
         <a class="d-block btn btn-text text-center" [routerLink]="['/']" routerLinkActive="active" >
           <h1 class="display-1">EduStudio</h1>
         </a>
         <div class="row">
           <h2 class="text-center mt-4 mb-4">Faça seu login</h2>
-          <form action="">
+          <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit()" novalidate>
             <div class="col-12 mb-3">
               <label class="form-label" for="emailInput">Email</label>
-              <input class="form-control" type="email" id="emailInput">
+              <input
+              class="form-control"
+              [class.is-invalid]="(loginFormSubmitted || emailField.dirty) && !emailField.valid"
+              formControlName="emailField"
+              type="email"
+              id="emailInput"
+              required>
+              <p class="invalid-feedback">
+                <span *ngIf="emailField.hasError('required')">O email é obrigatório</span>
+              </p>
             </div>
             <div class="col-12 mb-3">
               <label class="form-label" for="passwordInput">Senha</label>
-              <input class="form-control" type="password" id="passwordInput">
+              <input class="form-control" formControlName="passwordField" type="password" id="passwordInput" required
+              [class.is-invalid]="(loginFormSubmitted || passwordField.dirty) && !passwordField.valid">
+              <p class="invalid-feedback">
+                <span *ngIf="passwordField.hasError('required')">A senha é obrigatória</span>
+              </p>
             </div>
             <div class="d-flex justify-content-center mt-4">
               <button class="btn btn-primary btn-lg">Entrar</button>
