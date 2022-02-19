@@ -1,6 +1,6 @@
 /* Core */
-@import './components/core/variables.css';
-@import './components/core/utilities.css';
+@import './core/variables.css';
+@import './core/utilities.css';
 
 /* Components */
 
