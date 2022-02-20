@@ -7,6 +7,7 @@
 /* Guide */
 @import './components/guide/background.css';
 @import './components/guide/iframe.css';
+@import './components/guide/loading.css';
 
 /* Custom */
 @import './components/custom/video-card.css';

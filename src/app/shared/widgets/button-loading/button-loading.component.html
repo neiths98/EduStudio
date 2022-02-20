@@ -1,0 +1,8 @@
+<button class="btn" [ngClass]="classes" [disabled]="isLoading || disabled">
+  <ng-content></ng-content>
+  <span class="loading-icon" [class.is-loading]="isLoading">
+    <span class="spinner-border spinner-border-sm ms-1" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </span>
+  </span>
+</button>

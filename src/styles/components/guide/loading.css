@@ -1,0 +1,12 @@
+
+.loading-icon {
+  display: none;
+  opacity: 0.5;
+  transition: ease-in 0.25s;
+}
+
+.is-loading {
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+}
