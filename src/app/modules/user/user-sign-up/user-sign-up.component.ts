@@ -13,6 +13,7 @@ export class UserSignUpComponent implements OnInit {
   readonly lengthMaxPassword: number = AppValidators.constants.LENGTH_MAX_PASSWORD;
 
   signUpFormSubmitted: boolean = false;
+  signUpFormLoading: boolean = false;
   signUpForm!: FormGroup;
   emailField!: FormControl;
   passwordField!:FormControl;
@@ -51,6 +52,9 @@ export class UserSignUpComponent implements OnInit {
 
   signUpFormSubmit() {
     this.signUpFormSubmitted = true;
+    if (this.signUpForm.valid) {
+      this.signUpFormLoading = true;
+    }
   }
 
 }
