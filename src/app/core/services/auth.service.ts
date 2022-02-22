@@ -27,6 +27,9 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     const authToken = localStorage.getItem(localStorageConstants.authToken);
+    // FIXME: -> isTokenExpired() dando erro quando token não é válido
+    //  - ocasiona erro no redirect de AuthGuard (tela em branco)
+    //  - ocasiona erro nos botões do Header (função isLoggedIn() não retorna nem true nem false)
     if (authToken)
       return !this.jwtHelper.isTokenExpired(authToken);
     return false;
