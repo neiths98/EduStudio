@@ -38,6 +38,11 @@ export class AuthService {
     );
   }
 
+  logout() {
+    localStorage.removeItem(localStorageConstants.authToken);
+    this.router.navigate(['/']);
+  }
+
   isLoggedIn(): boolean {
     const authToken = localStorage.getItem(localStorageConstants.authToken);
     // FIXME: -> isTokenExpired() dando erro quando token não é válido
