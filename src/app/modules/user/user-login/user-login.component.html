@@ -19,6 +19,7 @@
               required>
               <p class="invalid-feedback">
                 <span *ngIf="emailField.hasError('required')">O email é obrigatório</span>
+                <span *ngIf="emailField.hasError('userNotFound')">Email incorreto ou não cadastrado</span>
               </p>
             </div>
             <div class="col-12 mb-3">
@@ -27,10 +28,12 @@
               [class.is-invalid]="(loginFormSubmitted || passwordField.dirty) && !passwordField.valid">
               <p class="invalid-feedback">
                 <span *ngIf="passwordField.hasError('required')">A senha é obrigatória</span>
+                <span *ngIf="passwordField.hasError('incorrectPassword')">Senha incorreta</span>
               </p>
             </div>
             <div class="d-flex justify-content-center mt-4">
-              <button class="btn btn-primary btn-lg">Entrar</button>
+              <!-- <button class="btn btn-primary btn-lg">Entrar</button> -->
+              <app-button-loading [classes]="'btn-primary btn-lg'" [isLoading]="loginFormLoading">Entrar</app-button-loading>
             </div>
           </form>
         </div>

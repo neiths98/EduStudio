@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { localStorageConstants } from '../constants/localStorage.constant';
+import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -13,7 +15,10 @@ export class AuthService {
   private _loginUrl = 'http://localhost:3000/user/sign-in';
   private jwtHelper = new JwtHelperService();
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) { }
 
   signUpUser(email: string, password: string) {
     const userData = { email, password };
@@ -22,7 +27,15 @@ export class AuthService {
 
   loginUser(email: string, password: string) {
     const userData = { email, password };
-    return this.http.post<any>(this._loginUrl, userData);
+    return this.http.post<any>(this._loginUrl, userData).pipe(
+      map((response) => {
+        if (response.token) {
+          localStorage.setItem(localStorageConstants.authToken, response.token);
+          this.router.navigate(['courses']);
+        }
+        return response;
+      })
+    );
   }
 
   isLoggedIn(): boolean {
