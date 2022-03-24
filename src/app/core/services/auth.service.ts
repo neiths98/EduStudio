@@ -22,7 +22,13 @@ export class AuthService {
 
   signUpUser(email: string, password: string) {
     const userData = { email, password };
-    return this.http.post<any>(this._signUpUrl, userData);
+    return this.http.post<any>(this._signUpUrl, userData).pipe(
+      map((response) => {
+        if (response)
+          this.loginUser(email, password).subscribe();
+        return response;
+      })
+    );
   }
 
   loginUser(email: string, password: string) {
