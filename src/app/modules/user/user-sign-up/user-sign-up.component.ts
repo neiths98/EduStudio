@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { finalize } from 'rxjs';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { AppValidators } from 'src/app/shared/widgets/app-forms/validators/app.validators';
 
 @Component({
@@ -19,7 +21,10 @@ export class UserSignUpComponent implements OnInit {
   passwordField!:FormControl;
   confirmPasswordField!: FormControl; 
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+  ) { }
 
   ngOnInit(): void {
     this.signUpFormInit();
@@ -54,6 +59,15 @@ export class UserSignUpComponent implements OnInit {
     this.signUpFormSubmitted = true;
     if (this.signUpForm.valid) {
       this.signUpFormLoading = true;
+      this.authService.signUpUser(this.signUpForm.value.emailField, this.signUpForm.value.passwordField)
+        .pipe(
+          finalize(() => this.signUpFormLoading = false)
+        ).subscribe({
+          error: (error) => {
+            if (error.status === 500)
+              this.emailField.setErrors({ userAlreadyExists: true });
+          }
+        });
     }
   }
 

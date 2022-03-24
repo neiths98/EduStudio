@@ -23,6 +23,7 @@
                 <span *ngIf="emailField.errors?.['required']">O email é obrigatório<br></span>
                 <span *ngIf="emailField.errors?.['emailPattern']">O email deve estar no formato xxx@xxx.xxx<br></span>
                 <span *ngIf="emailField.hasError('maxlength')">O email deve ter no máximo {{ lengthMaxEmail }} caracteres</span>
+                <span *ngIf="emailField.hasError('userAlreadyExists')">Email já cadastrado no sistema</span>
               </p>
             </div>
 
