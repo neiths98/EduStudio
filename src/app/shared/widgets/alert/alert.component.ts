@@ -52,7 +52,7 @@ export class AlertComponent implements OnInit {
     this.isClosed = false;
   }
 
-  onClose() {
+  closeAlert() {
     this.isClosed = true;
   }
 

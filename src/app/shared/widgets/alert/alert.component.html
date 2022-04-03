@@ -11,5 +11,5 @@ role="alert">
   <div *ngIf="!ref.hasChildNodes()">
     {{message}}
   </div>
-  <button *ngIf="isDismissible" (click)="onClose()" type="button" class="btn-close" aria-label="Fechar"></button>
+  <button *ngIf="isDismissible" (click)="closeAlert()" type="button" class="btn-close" aria-label="Fechar"></button>
 </div>
