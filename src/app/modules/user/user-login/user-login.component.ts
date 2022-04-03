@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { localStorageConstants } from 'src/app/core/constants/localStorage.constant';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { AlertComponent } from 'src/app/shared/widgets/alert/alert.component';
 
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html'
 })
 export class UserLoginComponent implements OnInit {
+
+  @ViewChild('alert') alert!: AlertComponent;
 
   loginFormSubmitted: boolean = false;
   loginFormLoading: boolean = false;
@@ -52,6 +55,8 @@ export class UserLoginComponent implements OnInit {
             }
             if (error.status === 404)
               this.emailField.setErrors({ userNotFound: true });
+            else
+              this.alert.showAlert();
           },
         });
     }
