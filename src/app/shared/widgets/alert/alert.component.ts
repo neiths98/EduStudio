@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FadeSlideInOut } from '../animations/animationsTriggers';
 
 @Component({
   selector: 'app-alert',
-  templateUrl: './alert.component.html'
+  templateUrl: './alert.component.html',
+  animations: [ FadeSlideInOut ]
 })
 export class AlertComponent implements OnInit {
 
