@@ -8,6 +8,7 @@
         <div class="row">
           <h2 class="text-center mt-4 mb-4">Faça seu cadastro</h2>
           <form [formGroup]="signUpForm" (ngSubmit)="signUpFormSubmit()">
+            <app-alert #alert [type]="'error'"></app-alert>
 
             <div class="col-12 mb-3">
               <label class="form-label" for="emailInput">Email</label>

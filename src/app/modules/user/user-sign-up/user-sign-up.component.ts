@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { AlertComponent } from 'src/app/shared/widgets/alert/alert.component';
 import { AppValidators } from 'src/app/shared/widgets/app-forms/validators/app.validators';
 
 @Component({
@@ -9,6 +10,8 @@ import { AppValidators } from 'src/app/shared/widgets/app-forms/validators/app.v
   templateUrl: './user-sign-up.component.html'
 })
 export class UserSignUpComponent implements OnInit {
+
+  @ViewChild('alert') alert!: AlertComponent;
 
   readonly lengthMaxEmail: number = AppValidators.constants.LENGTH_MAX_EMAIL;
   readonly lengthMinPassword: number = AppValidators.constants.LENGTH_MIN_PASSWORD;
@@ -63,9 +66,14 @@ export class UserSignUpComponent implements OnInit {
         .pipe(
           finalize(() => this.signUpFormLoading = false)
         ).subscribe({
+          next: () => { this.alert.closeAlert() },
           error: (error) => {
-            if (error.status === 500)
+            if (error.status === 500) {
+              this.alert.closeAlert();
               this.emailField.setErrors({ userAlreadyExists: true });
+            }
+            else
+              this.alert.showAlert();
           }
         });
     }

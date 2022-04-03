@@ -49,12 +49,16 @@ export class UserLoginComponent implements OnInit {
           finalize(() => this.loginFormLoading = false)
         )
         .subscribe({
+          next: () => { this.alert.closeAlert() },
           error: (error) => {
             if (error.status === 401) {
+              this.alert.closeAlert();
               this.passwordField.setErrors({ incorrectPassword: true });
             }
-            if (error.status === 404)
+            if (error.status === 404) {
+              this.alert.closeAlert();
               this.emailField.setErrors({ userNotFound: true });
+            }
             else
               this.alert.showAlert();
           },
