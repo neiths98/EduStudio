@@ -42,6 +42,8 @@ export class AlertComponent implements OnInit {
   ngOnInit(): void { 
     const typeClass = this.typeClasses[this.type].class;
     this.classes.push(typeClass);
+    if (this.isDismissible)
+      this.classes.push('alert-dismissible');
   }
 
   showAlert() {
