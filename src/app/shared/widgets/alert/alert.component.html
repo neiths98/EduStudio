@@ -1,0 +1,14 @@
+<div
+*ngIf="!isClosed"
+[ngClass]="classes"
+class="alert d-flex align-items-center"
+role="alert">
+  <img class="me-2" [src]="typeClasses[type].icon" width="24" height="24">
+  <div #ref>
+    <ng-content></ng-content>
+  </div>
+  <div *ngIf="!ref.hasChildNodes()">
+    {{message}}
+  </div>
+  <button *ngIf="isDismissible" (click)="onClose()" type="button" class="btn-close" aria-label="Fechar"></button>
+</div>
